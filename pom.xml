@@ -45,36 +45,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-		<!--新增的docker maven插件-->
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.12</version>
-				<!--docker镜像相关的配置信息-->
-				<configuration>
-						<dockerHost>http://47.102.204.252:2375</dockerHost>
-					<!--镜像名，这里用工程名-->
-					<imageName>${project.artifactId}</imageName>
-					<!--Dockerfile文件所在目录-->					<dockerDirectory>${project.basedir}/src/main</dockerDirectory>
-					<!--TAG,这里用工程版本号-->
-					<imageTags>
-						<imageTag>${project.version}</imageTag>
-					</imageTags>
-										<baseImage>java</baseImage>
-
-					<!--构建镜像的配置信息-->
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
+                    </plugin>
         </plugins>
-             	
     </build>
 
 </project>
